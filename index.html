@@ -65,8 +65,9 @@
             border-radius: 10px; /* Rounded corners */
             transition: transform 0.3s ease; /* Add smooth transition */
         }
-        .gallery-item img:active {
-            transform: scale(1.5); /* Scale up the image on click */
+        /* Image scaling on hover */
+        .gallery-item img:hover {
+            transform: scale(1.2); /* Scale the image to 1.2 times its original size */
         }
         /* Define specific grid item placements */
         .item1 { grid-column: span 3; grid-row: span 3; } /* Large image */
@@ -225,11 +226,11 @@
     <section class="description">
         <div class="description-content">
           <h2>About Sana</h2>
-          <p>We introduce Sana, a text-to-image framework that can efficiently generate images up to 4096×4096 resolution.
+          <p>We introduce Sana, a text-to-image framework that can efficiently generate images up to 4096 x 4096 resolution.
                     Sana can synthesize high-resolution, high-quality images with strong text-image alignment at a remarkably fast speed,
                     deployable on laptop GPU. Core designs include:
                     (1) Deep compression autoencoder: un-like traditional AEs, which compress images only 8x,
-                        we trained an AE that can compress images 32×, effectively reducing the number of latent tokens.
+                        we trained an AE that can compress images 32x, effectively reducing the number of latent tokens.
                     (2) Linear DiT: we replace all vanilla attention in DiT with linear attention, which is more efficient at high resolutions without sacrificing quality.
                     (3) Decoder-only text encoder: we replaced T5 with modern decoder-only small LLM as the text encoder and designed
                         complex human instruction with in-context learning to enhance the image-text alignment.

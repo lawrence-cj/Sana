@@ -56,6 +56,7 @@
         }
         .gallery-item {
             overflow: hidden;
+            /*aspect-ratio: 1/1; !* Keep the aspect ratio of the images *!*/
         }
         .gallery-item img {
             width: 100%;
@@ -68,6 +69,34 @@
         /* Image scaling on hover */
         .gallery-item img:hover {
             transform: scale(1.2); /* Scale the image to 1.2 times its original size */
+        }
+        @media (max-width: 4096px) {
+            .gallery {
+                /*grid-template-columns: repeat(auto-fit, minmax(40px, 1fr)); !* Adjust columns for smaller screens *!*/
+                grid-auto-columns: 100px; /* Adjust columns for smaller screens */
+                grid-auto-rows: 200px; /* Set a fixed height for the grid items */
+            }
+        }
+        @media (max-width: 2048px) {
+            .gallery {
+                /*grid-template-columns: repeat(auto-fit, minmax(40px, 1fr)); !* Adjust columns for smaller screens *!*/
+                grid-auto-columns: 60px; /* Adjust columns for smaller screens */
+                grid-auto-rows: 100px; /* Set a fixed height for the grid items */
+            }
+        }
+        @media (max-width: 1024px) {
+            .gallery {
+                /*grid-template-columns: repeat(auto-fit, minmax(40px, 1fr)); !* Adjust columns for smaller screens *!*/
+                grid-auto-columns: 40px; /* Adjust columns for smaller screens */
+                grid-auto-rows: 70px; /* Set a fixed height for the grid items */
+            }
+        }
+        @media (max-width: 768px) {
+            .gallery {
+                /*grid-template-columns: repeat(auto-fit, minmax(40px, 1fr)); !* Adjust columns for smaller screens *!*/
+                grid-auto-columns: 20px; /* Adjust columns for smaller screens */
+                grid-auto-rows: 30px; /* Set a fixed height for the grid items */
+            }
         }
         /* Define specific grid item placements */
         .item1 { grid-column: span 3; grid-row: span 3; } /* Large image */
@@ -248,7 +277,7 @@
           <p>Our mission is to develop AI technologies that can solve real-world problems and improve people's lives...</p>
         </div>
 
-          <!--BibTex citation -->
+    <!--BibTex citation -->
     <section class="citation" id="BibTeX">
         <div class="citation-content">
             <h2 class="title">BibTeX</h2>

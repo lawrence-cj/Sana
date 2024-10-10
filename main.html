@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sana</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+            background-image: url('asset/pexels-photo-28821836.jpeg'); /* Background image */
+            background-size: cover; /* Cover the entire viewport */
+            background-attachment: fixed; /* Fixed background */
+            background-position: center;
+        }
+        .hero {
+            text-align: center;
+            padding: 50px 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .hero h1 {
+            font-size: 5em;
+            margin: 0.2em 0;
+        }
+        .hero h2 {
+            font-size: 3em;
+            margin: 0.2em 0;
+        }
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 1em;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 1em;
+            color: white;
+            background-color: black;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .gallery-container {
+            max-width: 80%; /* Limit the width of the gallery */
+            margin: 0 auto; /* Center the gallery */
+            padding: 20px 0; /* Add some padding on top and bottom */
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr); /* 12 columns grid */
+            grid-auto-rows: 150px; /* Adjust row height */
+            gap: 10px;
+        }
+        .gallery-item {
+            overflow: hidden;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer; /* Cursor change on hover */
+            border-radius: 10px; /* Rounded corners */
+            transition: transform 0.3s ease; /* Add smooth transition */
+        }
+        .gallery-item img:active {
+            transform: scale(1.5); /* Scale up the image on click */
+        }
+        /* Define specific grid item placements */
+        .item1 { grid-column: span 3; grid-row: span 3; } /* Large image */
+        .item2 { grid-column: span 6; grid-row: span 3; } /* Smaller image */
+        .item3 { grid-column: span 3; grid-row: span 3; } /* Horizontal image */
+
+        .item4 { grid-column: span 5; grid-row: span 3; } /* Square image */
+        .item5 { grid-column: span 3; grid-row: span 3; } /* Vertical image */
+        .item6 { grid-column: span 4; grid-row: span 3; } /* Another larger image */
+
+        .item7 { grid-column: span 8; grid-row: span 1; } /* Wide image */
+        .item8 { grid-column: span 8; grid-row: span 1; } /* Wide image */
+        .item9 { grid-column: span 8; grid-row: span 1; } /* Wide image */
+
+        /* Modal styling */
+        #modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+            justify-content: center; /* Horizontally center the image */
+            flex-direction: column;
+            align-items: center; /* Ensure the description is close to the image */
+        }
+        #modal img {
+            margin: auto;
+            display: block;
+            max-width: 80%;
+            max-height: 80%; /* Ensure the image doesn't overflow vertically */
+            object-fit: contain; /* Make sure the aspect ratio is preserved */
+        }
+        #modal-description {
+            color: white;
+            text-align: center;
+            margin-top: 5px;
+            font-size: 1.2em;
+        }
+        .description {
+            background-color: #333; /* Solid background color that spans the entire width */
+            padding: 100px 0; /* Add vertical padding */
+            color: white; /* Text color */
+            text-align: center; /* Center align text */
+        }
+        .description-content {
+            max-width: 80%; /* Limit the width to 90% of the screen */
+            margin: 0 auto; /* Center the content horizontally */
+        }
+        .description-content h2 {
+            font-size: 2em;
+            text-align: center; /* Center-align the h2 */
+        }
+        .description-content p {
+            font-size: 1.1em;
+            text-align: left; /* Left-align the p */
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>Sana</h1>
+        <h2>Efficient High-resolution Image Synthesis <br>
+            with Linear Diffusion Transformer</h2>
+        <p>Exploring the Frontiers of Efficient Generative Foundation Models</p>
+        <a href="#" class="button">Paper</a>
+        <a href="#" class="button">Get Sana</a>
+    </div>
+
+    <div class="gallery-container">
+        <section class="gallery" id="gallery">
+        <div class="gallery-item item1"><img src="asset/28.jpg" alt="Image 1" data-description='a cyberpunk cat with a neon sign that says "SANA"'></div>
+        <div class="gallery-item item2"><img src="asset/32.webp" alt="Image 2" data-description='create name "SANA" standing in the seaside area with sunrise and flowers the letters is whitesand made, vibrant, graffiti, photo, typography, 3d render'></div>
+        <div class="gallery-item item3"><img src="asset/NV.png" alt="Image 3" data-description="This is the description for Image 3"></div>
+
+        <div class="gallery-item item4"><img src="asset/40.webp" alt="Image 4" data-description="This is the description for Image 3"></div>
+        <div class="gallery-item item5"><img src="asset/19.webp" alt="Image 5" data-description="This is the description for Image 3"></div>
+        <div class="gallery-item item6"><img src="asset/38.webp" alt="Image 6" data-description="This is the description for Image 3"></div>
+
+        <div class="gallery-item item7"><img src="asset/35.webp" alt="Image 7" data-description="This is the description for Image 3"></div>
+        <div class="gallery-item item8"><img src="asset/35.webp" alt="Image 8" data-description="This is the description for Image 3"></div>
+        <div class="gallery-item item9"><img src="asset/35.webp" alt="Image 9" data-description="This is the description for Image 3"></div>
+        </section>
+    </div>
+
+    <!-- The Modal -->
+    <div id="modal" onclick="this.style.display='none'">
+      <img id="modal-img" src="">
+      <div id="modal-description"></div> <!-- Text for description -->
+    </div>
+
+    <section class="description">
+    <div class="description-content">
+          <h2>About Sana</h2>
+          <p>We introduce Sana, a text-to-image framework that can efficiently generate images up to 4096×4096 resolution.
+                    Sana can synthesize high-resolution, high-quality images with strong text-image alignment at a remarkably fast speed,
+                    deployable on laptop GPU. Core designs include:
+                    (1) Deep compression autoencoder: un-like traditional AEs, which compress images only 8x,
+                        we trained an AE that can compress images 32×, effectively reducing the number of latent tokens.
+                    (2) Linear DiT: we replace all vanilla attention in DiT with linear attention, which is more efficient at high resolutions without sacrificing quality.
+                    (3) Decoder-only text encoder: we replaced T5 with modern decoder-only small LLM as the text encoder and designed
+                        complex human instruction with in-context learning to enhance the image-text alignment.
+                    (4) Efficient training and sampling: we propose Flow-DPM-Solver to reduce sampling steps,
+                        with efficient caption labeling and selection to accelerate convergence.
+                    As a result, Sana-0.6B is very competitive with modern giant diffusion model (e.g. Flux-12B),
+                    being 20 times smaller and 100+ times faster in measured throughput.
+                    Moreover, Sana-0.6B can be deployed on a 16GB laptop GPU, taking less than 1 second to generate a 1024 x 1024 resolution image.
+                    Sana enables content creation at low cost. Code and model will be publicly released upon publication</p>
+
+            <h2>Our Mission</h2>
+        </div>
+
+      <p>Our mission is to develop AI technologies that can solve real-world problems and improve people's lives...</p>
+    </section>
+
+    <script>
+      // Function to open the modal and display the clicked image and description
+      function openModal(img) {
+          var modal = document.getElementById("modal");
+          var modalImg = document.getElementById("modal-img");
+          var modalDescription = document.getElementById("modal-description");
+
+          modal.style.display = "flex";
+          modalImg.src = img.src;
+          modalDescription.textContent = img.getAttribute('data-description'); // Get description from data-description attribute
+      }
+
+      // Add click event listeners to all images in the gallery with their descriptions
+      const images = document.querySelectorAll('.gallery-item img');
+      images.forEach((img) => {
+        img.addEventListener('click', () => openModal(img));
+      });
+    </script>
+
+</body>>
+</html>

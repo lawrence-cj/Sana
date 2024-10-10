@@ -43,7 +43,7 @@
             text-decoration: none;
         }
         .gallery-container {
-            max-width: 80%; /* Limit the width of the gallery */
+            max-width: 75%; /* Limit the width of the gallery */
             margin: 0 auto; /* Center the gallery */
             padding: 20px 0; /* Add some padding on top and bottom */
         }
@@ -69,16 +69,27 @@
         }
         /* Define specific grid item placements */
         .item1 { grid-column: span 3; grid-row: span 3; } /* Large image */
-        .item2 { grid-column: span 6; grid-row: span 3; } /* Smaller image */
-        .item3 { grid-column: span 3; grid-row: span 3; } /* Horizontal image */
+        .item2 { grid-column: span 7; grid-row: span 3; } /* Smaller image */
+        .item3 { grid-column: span 2; grid-row: span 3; } /* Horizontal image */
 
-        .item4 { grid-column: span 5; grid-row: span 3; } /* Square image */
-        .item5 { grid-column: span 3; grid-row: span 3; } /* Vertical image */
-        .item6 { grid-column: span 4; grid-row: span 3; } /* Another larger image */
+        .item4 { grid-column: span 7; grid-row: span 2; } /* Wide image */
+        .item5 { grid-column: span 3; grid-row: span 2; } /* Wide image */
+        .item6 { grid-column: span 2; grid-row: span 2; } /* Wide image */
 
-        .item7 { grid-column: span 8; grid-row: span 1; } /* Wide image */
-        .item8 { grid-column: span 8; grid-row: span 1; } /* Wide image */
-        .item9 { grid-column: span 8; grid-row: span 1; } /* Wide image */
+        .item7 { grid-column: span 4; grid-row: span 3; } /* Square image */
+        .item8 { grid-column: span 2; grid-row: span 3; } /* Vertical image */
+        .item9 { grid-column: span 3; grid-row: span 3; } /* Vertical image */
+        .item10 { grid-column: span 3; grid-row: span 3; } /* Another larger image */
+
+        .item11 { grid-column: span 2; grid-row: span 3; } /* Another larger image */
+        .item12 { grid-column: span 4; grid-row: span 3; } /* Another larger image */
+        .item13 { grid-column: span 2; grid-row: span 3; } /* Another larger image */
+        .item14 { grid-column: span 4; grid-row: span 3; } /* Another larger image */
+
+        .item15 { grid-column: span 3; grid-row: span 2; } /* Another larger image */
+        .item16 { grid-column: span 3; grid-row: span 2; } /* Another larger image */
+        .item17 { grid-column: span 3; grid-row: span 2; } /* Another larger image */
+        .item18 { grid-column: span 3; grid-row: span 2; } /* Another larger image */
 
         /* Modal styling */
         #modal {
@@ -93,7 +104,7 @@
             background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
             justify-content: center; /* Horizontally center the image */
             flex-direction: column;
-            align-items: center; /* Ensure the description is close to the image */
+            align-items: center; /* Center align items vertically */
         }
         #modal img {
             margin: auto;
@@ -105,7 +116,7 @@
         #modal-description {
             color: white;
             text-align: center;
-            margin-top: 5px;
+            margin-top: 10px; /* Adjust this value to move text closer to the image */
             font-size: 1.2em;
         }
         .description {
@@ -115,8 +126,13 @@
             text-align: center; /* Center align text */
         }
         .description-content {
-            max-width: 80%; /* Limit the width to 90% of the screen */
+            background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background inside the section */
+            border: 2px solid #444; /* Adding a lighter border */
+            border-radius: 15px; /* Rounded corners */
+            max-width: 70%; /* Limit the width to 80% of the screen */
             margin: 0 auto; /* Center the content horizontally */
+            margin-top: -80px; /* Adjust this value to move text closer to the image */
+            padding: 20px; /* Padding inside the border */
         }
         .description-content h2 {
             font-size: 2em;
@@ -126,12 +142,45 @@
             font-size: 1.1em;
             text-align: left; /* Left-align the p */
         }
+        .citation {
+            background-color: #333; /* Solid background color that spans the entire width */
+            color: white;
+            padding: 10px;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .citation-content {
+            background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background inside the section */
+            border: 2px solid #444; /* Adding a lighter border */
+            border-radius: 15px; /* Rounded corners */
+            max-width: 70%; /* Limit the width to 80% of the screen */
+            margin: 0 auto; /* Center the content horizontally */
+            padding: 28px; /* Padding inside the border */
+        }
+        .citation-content h2 {
+            font-size: 2em;
+            text-align: center;
+        }
+        .citation pre {
+            text-align: left;
+            white-space: pre-wrap; /* Allows text to wrap */
+        }
+        .footer {
+            background-color: #222;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .footer a {
+            color: #00d1b2;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
     <div class="hero">
         <h1>Sana</h1>
-        <h2>Efficient High-resolution Image Synthesis <br>
+        <h2>Efficient High-Resolution Image Synthesis <br>
             with Linear Diffusion Transformer</h2>
         <p>Exploring the Frontiers of Efficient Generative Foundation Models</p>
         <a href="#" class="button">Paper</a>
@@ -142,15 +191,27 @@
         <section class="gallery" id="gallery">
         <div class="gallery-item item1"><img src="asset/28.jpg" alt="Image 1" data-description='a cyberpunk cat with a neon sign that says "SANA"'></div>
         <div class="gallery-item item2"><img src="asset/32.webp" alt="Image 2" data-description='create name "SANA" standing in the seaside area with sunrise and flowers the letters is whitesand made, vibrant, graffiti, photo, typography, 3d render'></div>
-        <div class="gallery-item item3"><img src="asset/NV.png" alt="Image 3" data-description="This is the description for Image 3"></div>
+        <div class="gallery-item item3"><img src="asset/44.png" alt="Image 3" data-description='Epic anime artwork of a wizard atop a mountain at night casting a cosmic spell into the dark sky that says "NV" made out of colorful energy'></div>
 
-        <div class="gallery-item item4"><img src="asset/40.webp" alt="Image 4" data-description="This is the description for Image 3"></div>
-        <div class="gallery-item item5"><img src="asset/19.webp" alt="Image 5" data-description="This is the description for Image 3"></div>
-        <div class="gallery-item item6"><img src="asset/38.webp" alt="Image 6" data-description="This is the description for Image 3"></div>
+        <div class="gallery-item item4"><img src="asset/29-1.webp" alt="Image 4" data-description='make me a logo that says "Oh God"  with a really cool flying dragon shape with lightning sparks all over the sides and all of it contains Indonesian language'></div>
+        <div class="gallery-item item5"><img src="asset/9.jpg" alt="Image 5" data-description="portrait photo of a girl, photograph, highly detailed face, depth of field"></div>
+        <div class="gallery-item item6"><img src="asset/26.webp" alt="Image 6" data-description="a few slices of lemon and slices of ginger fall down, split warm yellow honey, on green background, beautiful, studio light"></div>
 
-        <div class="gallery-item item7"><img src="asset/35.webp" alt="Image 7" data-description="This is the description for Image 3"></div>
-        <div class="gallery-item item8"><img src="asset/35.webp" alt="Image 8" data-description="This is the description for Image 3"></div>
-        <div class="gallery-item item9"><img src="asset/35.webp" alt="Image 9" data-description="This is the description for Image 3"></div>
+        <div class="gallery-item item7"><img src="asset/40.webp" alt="Image 7" data-description="A alpaca made of colorful building blocks, cyberpunk."></div>
+        <div class="gallery-item item8"><img src="asset/21-1.webp" alt="Image 8" data-description="drone photography of the sea"></div>
+        <div class="gallery-item item9"><img src="asset/8-1.webp" alt="Image 9" data-description='portrait of a man with bat robotic head ,wearing Louis Vuitton , horror'></div>
+        <div class="gallery-item item10"><img src="asset/4.webp" alt="Image 10" data-description='a more or less distant girl, the sunsets over a large beach, clear sky, in the style of experimental film, desert wave, 35mm film, doug aitken, light black and light aquamarine, colorful melancholy, ed mell'></div>
+
+        <div class="gallery-item item11"><img src="asset/24.webp" alt="Image 11" data-description='a stunning and luxurious bedroom carved into a rocky mountainside seamlessly blending nature with modern design with a plush earth-toned bed textured stone walls circular fireplace massive uniquely shaped window framing snow-capped mountains dense forests, tranquil mountain retreat offering breathtaking views of alpine landscape wooden floors soft rugs rustic sophisticated charm, cozy tranquil peaceful relaxing perfect escape unwind connect with nature, soothing intimate elegance modern design raw beauty of nature harmonious blend captivating view enchanting inviting space, soft ambient lighting warm hues indirect lighting natural daylight balanced inviting glow'></div>
+        <div class="gallery-item item12"><img src="asset/7.jpg" alt="Image 12" data-description='Astronaut in a jungle, cold color palette, muted colors, detailed, 8k'></div>
+        <div class="gallery-item item13"><img src="asset/1.webp" alt="Image 13" data-description='A vintage photograph of the old sailing yacht "Shamrock" with its long, white sails billowing in the wind as it floats on calm waters against an overcast sky. The photo captures the classic design and elegance of traditional racing yachts from early last century.'></div>
+        <div class="gallery-item item14"><img src="asset/34.webp" alt="Image 14" data-description='a blue Porsche 356 parked in front of a yellow brick wall.'></div>
+
+        <div class="gallery-item item15"><img src="asset/38.webp" alt="Image 15" data-description='smiling cartoon dog sits at a table, coffee mug on hand, as a room goes up in flames. "Help" the dog is yelling'></div>
+        <div class="gallery-item item16"><img src="asset/4K-4.webp" alt="Image 16" data-description='Self-portrait oil painting, a beautiful cyborg with golden hair, 8k'></div>
+        <div class="gallery-item item17"><img src="asset/4K-3.webp" alt="Image 17" data-description='Pirate ship trapped in a cosmic maelstrom nebula, rendered in cosmic beach whirlpool engine, volumetric lighting, spectacular, ambient lights, light pollution, cinematic atmosphere, art nouveau style, illustration art artwork by SenseiJaye, intricate detail.'></div>
+        <div class="gallery-item item18"><img src="asset/20.webp" alt="Image 18" data-description='photograph of a stunt man walking while on fire dressed as an American politician, 35mm film still from movie directed in the style of Quentin Tarantino'></div>
+
         </section>
     </div>
 
@@ -161,7 +222,7 @@
     </div>
 
     <section class="description">
-    <div class="description-content">
+        <div class="description-content">
           <h2>About Sana</h2>
           <p>We introduce Sana, a text-to-image framework that can efficiently generate images up to 4096×4096 resolution.
                     Sana can synthesize high-resolution, high-quality images with strong text-image alignment at a remarkably fast speed,
@@ -177,12 +238,43 @@
                     being 20 times smaller and 100+ times faster in measured throughput.
                     Moreover, Sana-0.6B can be deployed on a 16GB laptop GPU, taking less than 1 second to generate a 1024 x 1024 resolution image.
                     Sana enables content creation at low cost. Code and model will be publicly released upon publication</p>
-
-            <h2>Our Mission</h2>
         </div>
 
-      <p>Our mission is to develop AI technologies that can solve real-world problems and improve people's lives...</p>
+    <section class="description">
+        <div class="description-content">
+          <h2>Our Mission</h2>
+          <p>Our mission is to develop AI technologies that can solve real-world problems and improve people's lives...</p>
+        </div>
+
+          <!--BibTex citation -->
+    <section class="citation" id="BibTeX">
+        <div class="citation-content">
+            <h2 class="title">BibTeX</h2>
+            <pre><code>@misc{xie2024sana,
+    title={Sana: Efficient High-Resolution Image Synthesis with Linear Diffusion Transformer},
+    author={Enze Xie and Junsong Chen and Junyu Chen and Han Cai and Yujun Lin and Zhekai Zhang and Muyang Li and Ligeng Zhu and Yao Lu and Song Han},
+    year={2024},
+    eprint={0000.0000},
+    archivePrefix={arXiv},
+    primaryClass={cs.CV}
+}</code></pre>
+        </div>
     </section>
+    <!--End BibTex citation -->
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content">
+                        <p class="has-text-centered">Total clicks: <span id="busuanzi_value_site_pv"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
 
     <script>
       // Function to open the modal and display the clicked image and description
@@ -203,5 +295,5 @@
       });
     </script>
 
-</body>>
+</body>
 </html>

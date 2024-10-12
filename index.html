@@ -14,7 +14,7 @@
             padding: 0;
             color: white;
             /*background-image: url('asset/pexels-photo-28821836.jpeg'); !* Background image *!*/
-            background-image: url('asset/pexels-photo-28821825.jpeg'); /* Background image */
+            background-image: url('asset/samples/pexels-photo-28821825.jpeg'); /* Background image */
             background-size: contain; /* Cover the entire viewport */
             background-attachment: fixed; /* Fixed background */
             background-position: center;
@@ -184,6 +184,14 @@
             color: #00d1b2;
             text-decoration: none;
         }
+        .inserted-image {
+            max-width: 80%;  /* Set the maximum width for the image */
+            height: auto;    /* Ensure the height adjusts automatically to maintain aspect ratio */
+            margin: 20px 0;  /* Add space above and below the image */
+            display: block;  /* Make sure the image is treated as a block-level element */
+            margin-left: auto; /* Center the image horizontally */
+            margin-right: auto;
+        }
 
         @media (max-width: 4096px) {
             .gallery {
@@ -208,6 +216,10 @@
                 max-width: 728px; /* Limit the width to 80% of the screen */
                 padding: 10px; /* Padding inside the border */
             }
+            .inserted-image {
+                max-width: 1024px; /* Limit the width to 80% of the screen */
+                padding: 10px; /* Padding inside the border */
+            }
         }
         @media (max-width: 1024px) {
             .gallery {
@@ -224,6 +236,10 @@
             .citation-content {
                 max-width: 728px; /* Limit the width to 80% of the screen */
                 padding: 10px; /* Padding inside the border */
+            }
+            .inserted-image {
+                max-width: 960px; /* Limit the width to 80% of the screen */
+                padding: 5px; /* Padding inside the border */
             }
         }
         @media (max-width: 768px) {
@@ -254,6 +270,10 @@
                 max-width: 92%; /* Limit the width to 80% of the screen */
                 padding: 10px; /* Padding inside the border */
             }
+            .inserted-image {
+                max-width: 95%; /* Limit the width to 80% of the screen */
+                padding: 5px; /* Padding inside the border */
+            }
         }
         /* Dark mode */
         @media (prefers-color-scheme: dark) {
@@ -276,28 +296,28 @@
 
     <div class="gallery-container">
         <section class="gallery" id="gallery">
-        <div class="gallery-item item1"><img src="asset/28.jpg" alt="Image 1" data-description='a cyberpunk cat with a neon sign that says "SANA"'></div>
-        <div class="gallery-item item2"><img src="asset/32.webp" alt="Image 2" data-description='create name "SANA" standing in the seaside area with sunrise and flowers the letters is whitesand made, vibrant, graffiti, photo, typography, 3d render'></div>
-        <div class="gallery-item item3"><img src="asset/44.png" alt="Image 3" data-description='Epic anime artwork of a wizard atop a mountain at night casting a cosmic spell into the dark sky that says "NV" made out of colorful energy'></div>
+        <div class="gallery-item item1"><img src="asset/samples/28.jpg" alt="Image 1" data-description='a cyberpunk cat with a neon sign that says "SANA"'></div>
+        <div class="gallery-item item2"><img src="asset/samples/32.webp" alt="Image 2" data-description='create name "SANA" standing in the seaside area with sunrise and flowers the letters is whitesand made, vibrant, graffiti, photo, typography, 3d render'></div>
+        <div class="gallery-item item3"><img src="asset/samples/44.png" alt="Image 3" data-description='Epic anime artwork of a wizard atop a mountain at night casting a cosmic spell into the dark sky that says "NV" made out of colorful energy'></div>
 
-        <div class="gallery-item item4"><img src="asset/29-1.webp" alt="Image 4" data-description='make me a logo that says "Oh God"  with a really cool flying dragon shape with lightning sparks all over the sides and all of it contains Indonesian language'></div>
-        <div class="gallery-item item5"><img src="asset/9.jpg" alt="Image 5" data-description="portrait photo of a girl, photograph, highly detailed face, depth of field"></div>
-        <div class="gallery-item item6"><img src="asset/26.webp" alt="Image 6" data-description="a few slices of lemon and slices of ginger fall down, split warm yellow honey, on green background, beautiful, studio light"></div>
+        <div class="gallery-item item4"><img src="asset/samples/29-1.webp" alt="Image 4" data-description='make me a logo that says "Oh God"  with a really cool flying dragon shape with lightning sparks all over the sides and all of it contains Indonesian language'></div>
+        <div class="gallery-item item5"><img src="asset/samples/9.jpg" alt="Image 5" data-description="portrait photo of a girl, photograph, highly detailed face, depth of field"></div>
+        <div class="gallery-item item6"><img src="asset/samples/26.webp" alt="Image 6" data-description="a few slices of lemon and slices of ginger fall down, split warm yellow honey, on green background, beautiful, studio light"></div>
 
-        <div class="gallery-item item7"><img src="asset/40.webp" alt="Image 7" data-description="A alpaca made of colorful building blocks, cyberpunk."></div>
-        <div class="gallery-item item8"><img src="asset/21-1.webp" alt="Image 8" data-description="drone photography of the sea"></div>
-        <div class="gallery-item item9"><img src="asset/8-1.webp" alt="Image 9" data-description='portrait of a man with bat robotic head ,wearing Louis Vuitton , horror'></div>
-        <div class="gallery-item item10"><img src="asset/4.webp" alt="Image 10" data-description='a more or less distant girl, the sunsets over a large beach, clear sky, in the style of experimental film, desert wave, 35mm film, doug aitken, light black and light aquamarine, colorful melancholy, ed mell'></div>
+        <div class="gallery-item item7"><img src="asset/samples/40.webp" alt="Image 7" data-description="A alpaca made of colorful building blocks, cyberpunk."></div>
+        <div class="gallery-item item8"><img src="asset/samples/21-1.webp" alt="Image 8" data-description="drone photography of the sea"></div>
+        <div class="gallery-item item9"><img src="asset/samples/8-1.webp" alt="Image 9" data-description='portrait of a man with bat robotic head ,wearing Louis Vuitton , horror'></div>
+        <div class="gallery-item item10"><img src="asset/samples/4.webp" alt="Image 10" data-description='a more or less distant girl, the sunsets over a large beach, clear sky, in the style of experimental film, desert wave, 35mm film, doug aitken, light black and light aquamarine, colorful melancholy, ed mell'></div>
 
-        <div class="gallery-item item11"><img src="asset/24.webp" alt="Image 11" data-description='a stunning and luxurious bedroom carved into a rocky mountainside seamlessly blending nature with modern design with a plush earth-toned bed textured stone walls circular fireplace massive uniquely shaped window framing snow-capped mountains dense forests, tranquil mountain retreat offering breathtaking views of alpine landscape wooden floors soft rugs rustic sophisticated charm, cozy tranquil peaceful relaxing perfect escape unwind connect with nature, soothing intimate elegance modern design raw beauty of nature harmonious blend captivating view enchanting inviting space, soft ambient lighting warm hues indirect lighting natural daylight balanced inviting glow'></div>
-        <div class="gallery-item item12"><img src="asset/7.jpg" alt="Image 12" data-description='Astronaut in a jungle, cold color palette, muted colors, detailed, 8k'></div>
-        <div class="gallery-item item13"><img src="asset/1.webp" alt="Image 13" data-description='A vintage photograph of the old sailing yacht "Shamrock" with its long, white sails billowing in the wind as it floats on calm waters against an overcast sky. The photo captures the classic design and elegance of traditional racing yachts from early last century.'></div>
-        <div class="gallery-item item14"><img src="asset/34.webp" alt="Image 14" data-description='a blue Porsche 356 parked in front of a yellow brick wall.'></div>
+        <div class="gallery-item item11"><img src="asset/samples/24.webp" alt="Image 11" data-description='a stunning and luxurious bedroom carved into a rocky mountainside seamlessly blending nature with modern design with a plush earth-toned bed textured stone walls circular fireplace massive uniquely shaped window framing snow-capped mountains dense forests, tranquil mountain retreat offering breathtaking views of alpine landscape wooden floors soft rugs rustic sophisticated charm, cozy tranquil peaceful relaxing perfect escape unwind connect with nature, soothing intimate elegance modern design raw beauty of nature harmonious blend captivating view enchanting inviting space, soft ambient lighting warm hues indirect lighting natural daylight balanced inviting glow'></div>
+        <div class="gallery-item item12"><img src="asset/samples/7.jpg" alt="Image 12" data-description='Astronaut in a jungle, cold color palette, muted colors, detailed, 8k'></div>
+        <div class="gallery-item item13"><img src="asset/samples/1.webp" alt="Image 13" data-description='A vintage photograph of the old sailing yacht "Shamrock" with its long, white sails billowing in the wind as it floats on calm waters against an overcast sky. The photo captures the classic design and elegance of traditional racing yachts from early last century.'></div>
+        <div class="gallery-item item14"><img src="asset/samples/34.webp" alt="Image 14" data-description='a blue Porsche 356 parked in front of a yellow brick wall.'></div>
 
-        <div class="gallery-item item15"><img src="asset/38.webp" alt="Image 15" data-description='smiling cartoon dog sits at a table, coffee mug on hand, as a room goes up in flames. "Help" the dog is yelling'></div>
-        <div class="gallery-item item16"><img src="asset/4K-4.webp" alt="Image 16" data-description='Self-portrait oil painting, a beautiful cyborg with golden hair, 8k'></div>
-        <div class="gallery-item item17"><img src="asset/4K-3.webp" alt="Image 17" data-description='Pirate ship trapped in a cosmic maelstrom nebula, rendered in cosmic beach whirlpool engine, volumetric lighting, spectacular, ambient lights, light pollution, cinematic atmosphere, art nouveau style, illustration art artwork by SenseiJaye, intricate detail.'></div>
-        <div class="gallery-item item18"><img src="asset/20.webp" alt="Image 18" data-description='photograph of a stunt man walking while on fire dressed as an American politician, 35mm film still from movie directed in the style of Quentin Tarantino'></div>
+        <div class="gallery-item item15"><img src="asset/samples/38.webp" alt="Image 15" data-description='smiling cartoon dog sits at a table, coffee mug on hand, as a room goes up in flames. "Help" the dog is yelling'></div>
+        <div class="gallery-item item16"><img src="asset/samples/4K-4.webp" alt="Image 16" data-description='Self-portrait oil painting, a beautiful cyborg with golden hair, 8k'></div>
+        <div class="gallery-item item17"><img src="asset/samples/4K-3.webp" alt="Image 17" data-description='Pirate ship trapped in a cosmic maelstrom nebula, rendered in cosmic beach whirlpool engine, volumetric lighting, spectacular, ambient lights, light pollution, cinematic atmosphere, art nouveau style, illustration art artwork by SenseiJaye, intricate detail.'></div>
+        <div class="gallery-item item18"><img src="asset/samples/20.webp" alt="Image 18" data-description='photograph of a stunt man walking while on fire dressed as an American politician, 35mm film still from movie directed in the style of Quentin Tarantino'></div>
 
         </section>
     </div>
@@ -326,6 +346,11 @@
                     Moreover, Sana-0.6B can be deployed on a 16GB laptop GPU, taking less than 1 second to generate a 1024 x 1024 resolution image.
                     Sana enables content creation at low cost. Code and model will be publicly released upon publication. </p>
         </div>
+
+    <!-- Insert your image here -->
+    <div>
+        <img src="asset/content/latency_compare.jpg" alt="Description of the image" class="inserted-image">
+    </div>
 
     <section class="description">
         <div class="description-content">

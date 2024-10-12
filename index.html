@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sana</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            /*font-family: Arial, sans-serif;*/
+            font-family: inherit, sans-serif;
+            line-height: 1.5; /* Adjust this value to make the spacing larger */
             margin: 0;
             padding: 0;
             color: white;
@@ -28,6 +31,7 @@
         .hero h2 {
             font-size: 3em;
             margin: 0.2em 0;
+            font-weight: normal;
         }
         .hero p {
             font-size: 1.5em;
@@ -37,10 +41,10 @@
             display: inline-block;
             padding: 10px 20px;
             margin: 5px;
-            font-size: 1em;
-            color: white;
-            background-color: black;
-            border-radius: 5px;
+            font-size: 0.9em;
+            color: black;
+            background-color: white;
+            border-radius: 30px;
             text-decoration: none;
         }
         .gallery-container {
@@ -123,46 +127,48 @@
             font-size: 1.2em;
         }
         .description {
-            background-color: #333; /* Solid background color that spans the entire width */
-            padding: 100px 0; /* Add vertical padding */
-            color: white; /* Text color */
+            background-color: #fff; /* Solid background color that spans the entire width */
+            padding: 20px 0; /* Add vertical padding */
+            color: black; /* Text color */
             text-align: center; /* Center align text */
         }
         .description-content {
-            background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background inside the section */
-            border: 2px solid #444; /* Adding a lighter border */
+            /*background-color: rgba(255, 255, 255, 0.1); !* Semi-transparent background inside the section *!*/
+            /*border: 2px solid #555; !* Adding a lighter border *!*/
             border-radius: 15px; /* Rounded corners */
-            max-width: 60%; /* Limit the width to 80% of the screen */
+            max-width: 65%; /* Limit the width to 80% of the screen */
             margin: 0 auto; /* Center the content horizontally */
-            margin-top: -80px; /* Adjust this value to move text closer to the image */
             padding: 20px; /* Padding inside the border */
         }
         .description-content h2 {
-            font-size: 2em;
-            text-align: center; /* Center-align the h2 */
+            font-size: 1.5em;
+            text-align: left; /* Center-align the h2 */
+            font-weight: normal;
         }
         .description-content p {
             font-size: 1.1em;
             text-align: left; /* Left-align the p */
+            font-weight: normal;
         }
         .citation {
-            background-color: #333; /* Solid background color that spans the entire width */
-            color: white;
+            /*background-color: #333; !* Solid background color that spans the entire width *!*/
+            color: black;
             padding: 10px;
             text-align: center;
             margin-top: 10px;
         }
         .citation-content {
-            background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background inside the section */
-            border: 2px solid #444; /* Adding a lighter border */
+            /*background-color: rgba(255, 255, 255, 0.1); !* Semi-transparent background inside the section *!*/
+            /*border: 2px solid #444; !* Adding a lighter border *!*/
             border-radius: 15px; /* Rounded corners */
-            max-width: 60%; /* Limit the width to 80% of the screen */
+            max-width: 65%; /* Limit the width to 80% of the screen */
             margin: 0 auto; /* Center the content horizontally */
             padding: 28px; /* Padding inside the border */
         }
         .citation-content h2 {
             font-size: 2em;
-            text-align: center;
+            text-align: left;
+            font-weight: normal;
         }
         .citation pre {
             text-align: left;
@@ -193,11 +199,31 @@
                 grid-auto-rows: 100px; /* Set a fixed height for the grid items */
             }
         }
+        @media (min-width: 2048px) {
+            .description-content {
+                max-width: 728px; /* Limit the width to 80% of the screen */
+                padding: 10px; /* Padding inside the border */
+            }
+            .citation-content {
+                max-width: 728px; /* Limit the width to 80% of the screen */
+                padding: 10px; /* Padding inside the border */
+            }
+        }
         @media (max-width: 1024px) {
             .gallery {
                 /*grid-template-columns: repeat(auto-fit, minmax(40px, 1fr)); !* Adjust columns for smaller screens *!*/
                 grid-auto-columns: 40px; /* Adjust columns for smaller screens */
                 grid-auto-rows: 70px; /* Set a fixed height for the grid items */
+            }
+        }
+        @media (min-width: 1024px) {
+            .description-content {
+                max-width: 728px; /* Limit the width to 80% of the screen */
+                padding: 10px; /* Padding inside the border */
+            }
+            .citation-content {
+                max-width: 728px; /* Limit the width to 80% of the screen */
+                padding: 10px; /* Padding inside the border */
             }
         }
         @media (max-width: 768px) {
@@ -221,12 +247,19 @@
                 font-size: 1em;
             }
             .description-content {
-                max-width: 80%; /* Limit the width to 80% of the screen */
+                max-width: 92%; /* Limit the width to 80% of the screen */
                 padding: 10px; /* Padding inside the border */
             }
             .citation-content {
-                max-width: 80%; /* Limit the width to 80% of the screen */
+                max-width: 92%; /* Limit the width to 80% of the screen */
                 padding: 10px; /* Padding inside the border */
+            }
+        }
+        /* Dark mode */
+        @media (prefers-color-scheme: dark) {
+            .description {
+                background-color: #333; /* Dark color for dark mode */
+                color: white; /* Light text color for dark mode */
             }
         }
     </style>
@@ -280,18 +313,18 @@
           <h2>About Sana</h2>
           <p>We introduce Sana, a text-to-image framework that can efficiently generate images up to 4096 x 4096 resolution.
                     Sana can synthesize high-resolution, high-quality images with strong text-image alignment at a remarkably fast speed,
-                    deployable on laptop GPU. Core designs include:
-                    (1) Deep compression autoencoder: un-like traditional AEs, which compress images only 8x,
-                        we trained an AE that can compress images 32x, effectively reducing the number of latent tokens.
-                    (2) Linear DiT: we replace all vanilla attention in DiT with linear attention, which is more efficient at high resolutions without sacrificing quality.
-                    (3) Decoder-only text encoder: we replaced T5 with modern decoder-only small LLM as the text encoder and designed
-                        complex human instruction with in-context learning to enhance the image-text alignment.
-                    (4) Efficient training and sampling: we propose Flow-DPM-Solver to reduce sampling steps,
-                        with efficient caption labeling and selection to accelerate convergence.
+                    deployable on laptop GPU. Core designs include:<br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;  <strong style="font-size: 18px;">Deep compression autoencoder: </strong> un-like traditional AEs, which compress images only 8x,
+                        we trained an AE that can compress images 32x, effectively reducing the number of latent tokens.<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp; <strong style="font-size: 18px;">Linear DiT: </strong> we replace all vanilla attention in DiT with linear attention, which is more efficient at high resolutions without sacrificing quality.<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp; <strong style="font-size: 18px;">Decoder-only text encoder: </strong> we replaced T5 with modern decoder-only small LLM as the text encoder and designed
+                        complex human instruction with in-context learning to enhance the image-text alignment.<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp; <strong style="font-size: 18px;">Efficient training and sampling: </strong> we propose Flow-DPM-Solver to reduce sampling steps,
+                        with efficient caption labeling and selection to accelerate convergence.<br><br>
                     As a result, Sana-0.6B is very competitive with modern giant diffusion model (e.g. Flux-12B),
                     being 20 times smaller and 100+ times faster in measured throughput.
                     Moreover, Sana-0.6B can be deployed on a 16GB laptop GPU, taking less than 1 second to generate a 1024 x 1024 resolution image.
-                    Sana enables content creation at low cost. Code and model will be publicly released upon publication</p>
+                    Sana enables content creation at low cost. Code and model will be publicly released upon publication. </p>
         </div>
 
     <section class="description">

@@ -192,6 +192,16 @@
             margin-left: auto; /* Center the image horizontally */
             margin-right: auto;
         }
+        .video-container {
+            text-align: center;  /* Center the video horizontally */
+            margin: 20px 0;  /* Add some vertical margin around the video */
+        }
+        video {
+            max-width: 80%;  /* The video will scale to fit the container */
+            height: auto;  /* Maintain the video's aspect ratio */
+            border-radius: 10px;  /* Rounded corners for the video */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);  /* Add a subtle shadow */
+        }
 
         @media (max-width: 4096px) {
             .gallery {
@@ -220,6 +230,9 @@
                 max-width: 1024px; /* Limit the width to 80% of the screen */
                 padding: 10px; /* Padding inside the border */
             }
+            video {
+                max-width: 1024px;  /* The video will scale to fit the container */
+            }
         }
         @media (max-width: 1024px) {
             .gallery {
@@ -240,6 +253,9 @@
             .inserted-image {
                 max-width: 960px; /* Limit the width to 80% of the screen */
                 padding: 5px; /* Padding inside the border */
+            }
+            video {
+                max-width: 728px;  /* The video will scale to fit the container */
             }
         }
         @media (max-width: 768px) {
@@ -273,6 +289,9 @@
             .inserted-image {
                 max-width: 95%; /* Limit the width to 80% of the screen */
                 padding: 5px; /* Padding inside the border */
+            }
+            video {
+                max-width: 92%;  /* The video will scale to fit the container */
             }
         }
         /* Dark mode */
@@ -358,6 +377,17 @@
           <p>Our mission is to develop AI technologies that can solve real-world problems and improve people's lives...</p>
         </div>
 
+        <!-- Video Section -->
+        <div class="description-content">
+            <h2>Sana-0.6B is deployable on a customer-grade 4090 GPU</h2>
+        </div>
+        <div class="video-container">
+            <video controls>
+                <source src="asset/video/Sana-0.6B-laptop.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
     <!--BibTex citation -->
     <section class="citation" id="BibTeX">
         <div class="citation-content">
@@ -406,6 +436,7 @@
         img.addEventListener('click', () => openModal(img));
       });
     </script>
+
 
 </body>
 </html>

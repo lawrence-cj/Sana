@@ -7,22 +7,23 @@
     <title>Sana</title>
     <style>
         body {
-            /*font-family: Arial, sans-serif;*/
-            font-family: inherit, sans-serif;
+            font-family: Arial, sans-serif;
             line-height: 1.5; /* Adjust this value to make the spacing larger */
             margin: 0;
             padding: 0;
-            color: white;
-            /*background-image: url('asset/pexels-photo-28821836.jpeg'); !* Background image *!*/
+            color: black;
             background-image: url('asset/samples/pexels-photo-28821825.jpeg'); /* Background image */
             background-size: contain; /* Cover the entire viewport */
             background-attachment: fixed; /* Fixed background */
             background-position: center;
+            direction: ltr;
         }
         .hero {
             text-align: center;
             padding: 50px 0;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: #fff;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
         }
         .hero h1 {
             font-size: 5em;
@@ -42,8 +43,8 @@
             padding: 10px 20px;
             margin: 5px;
             font-size: 0.9em;
-            color: black;
-            background-color: white;
+            color: white;
+            background-color: black;
             border-radius: 30px;
             text-decoration: none;
         }
@@ -127,23 +128,44 @@
             font-size: 1.2em;
         }
         .description {
+            font-family: Arial, sans-serif;
+            font-style: normal;
+            font-size: 17px;
+            line-height: 1.47;
+            color: #333;
+            /*color: black; !* Text color *!*/
+            letter-spacing: -0.022em;
+            font-weight: 400;
             background-color: #fff; /* Solid background color that spans the entire width */
             padding: 20px 0; /* Add vertical padding */
-            color: black; /* Text color */
             text-align: center; /* Center align text */
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            box-shadow: 2px 4px 12px #00000054;
         }
         .description-content {
             /*background-color: rgba(255, 255, 255, 0.1); !* Semi-transparent background inside the section *!*/
             /*border: 2px solid #555; !* Adding a lighter border *!*/
-            border-radius: 15px; /* Rounded corners */
             max-width: 65%; /* Limit the width to 80% of the screen */
             margin: 0 auto; /* Center the content horizontally */
             padding: 20px; /* Padding inside the border */
+            font-style: normal;
+            border-radius: 18px;
+            /*box-shadow: 2px 4px 12px #00000014;*/
         }
         .description-content h2 {
+            display: block;
+            color: black;
             font-size: 1.5em;
+            line-height: 1.125;
+            letter-spacing: .004em;
+            font-weight: 600;
             text-align: left; /* Center-align the h2 */
-            font-weight: normal;
+            margin-block-start: 0.83em;
+            margin-block-end: 0.83em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            font-style: normal;
         }
         .description-content p {
             font-size: 1.1em;
@@ -152,18 +174,23 @@
         }
         .citation {
             /*background-color: #333; !* Solid background color that spans the entire width *!*/
+            font-family: Arial, sans-serif;
             color: black;
             padding: 10px;
             text-align: center;
             margin-top: 10px;
+            box-shadow: 2px 4px 12px #00000054;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
         }
         .citation-content {
             /*background-color: rgba(255, 255, 255, 0.1); !* Semi-transparent background inside the section *!*/
             /*border: 2px solid #444; !* Adding a lighter border *!*/
             border-radius: 15px; /* Rounded corners */
+            font-size: 0.8em;
             max-width: 65%; /* Limit the width to 80% of the screen */
             margin: 0 auto; /* Center the content horizontally */
-            padding: 28px; /* Padding inside the border */
+            padding: 0px; /* Padding inside the border */
         }
         .citation-content h2 {
             font-size: 2em;
@@ -191,6 +218,9 @@
             display: block;  /* Make sure the image is treated as a block-level element */
             margin-left: auto; /* Center the image horizontally */
             margin-right: auto;
+            margin-top: -10px;
+            border-radius: 10px;
+            box-shadow: 2px 4px 12px #00000024;
         }
         .video-container {
             text-align: center;  /* Center the video horizontally */
@@ -200,7 +230,7 @@
             max-width: 80%;  /* The video will scale to fit the container */
             height: auto;  /* Maintain the video's aspect ratio */
             border-radius: 10px;  /* Rounded corners for the video */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);  /* Add a subtle shadow */
+            box-shadow: 2px 4px 12px #00000054;
         }
 
         @media (max-width: 4096px) {
@@ -352,26 +382,59 @@
           <h2>About Sana</h2>
           <p>We introduce Sana, a text-to-image framework that can efficiently generate images up to 4096 x 4096 resolution.
                     Sana can synthesize high-resolution, high-quality images with strong text-image alignment at a remarkably fast speed,
-                    deployable on laptop GPU. Core designs include:<br><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;  <strong style="font-size: 18px;">Deep compression autoencoder: </strong> un-like traditional AEs, which compress images only 8x,
-                        we trained an AE that can compress images 32x, effectively reducing the number of latent tokens.<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp; <strong style="font-size: 18px;">Linear DiT: </strong> we replace all vanilla attention in DiT with linear attention, which is more efficient at high resolutions without sacrificing quality.<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp; <strong style="font-size: 18px;">Decoder-only text encoder: </strong> we replaced T5 with modern decoder-only small LLM as the text encoder and designed
-                        complex human instruction with in-context learning to enhance the image-text alignment.<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp; <strong style="font-size: 18px;">Efficient training and sampling: </strong> we propose Flow-DPM-Solver to reduce sampling steps,
-                        with efficient caption labeling and selection to accelerate convergence.<br><br>
+                    deployable on laptop GPU. Core designs include:
+                    <strong style="font-size: 18px;">Deep compression autoencoder: </strong> un-like traditional AEs, which compress images only 8x,
+                        we trained an AE that can compress images 32x, effectively reducing the number of latent tokens.
+                    <strong style="font-size: 18px;">Linear DiT: </strong> we replace all vanilla attention in DiT with linear attention, which is more efficient at high resolutions without sacrificing quality.
+                    <strong style="font-size: 18px;">Decoder-only text encoder: </strong> we replaced T5 with modern decoder-only small LLM as the text encoder and designed
+                        complex human instruction with in-context learning to enhance the image-text alignment.
+                    <strong style="font-size: 18px;">Efficient training and sampling: </strong> we propose Flow-DPM-Solver to reduce sampling steps,
+                        with efficient caption labeling and selection to accelerate convergence.<br>
                     As a result, Sana-0.6B is very competitive with modern giant diffusion model (e.g. Flux-12B),
                     being 20 times smaller and 100+ times faster in measured throughput.
                     Moreover, Sana-0.6B can be deployed on a 16GB laptop GPU, taking less than 1 second to generate a 1024 x 1024 resolution image.
-                    Sana enables content creation at low cost. Code and model will be publicly released upon publication. </p>
+                    Sana enables content creation at low cost. Code and model will be publicly released.</p>
         </div>
 
-    <!-- Insert your image here -->
-    <div>
-        <img src="asset/content/latency_compare.jpg" alt="Description of the image" class="inserted-image">
-    </div>
+        <!-- Insert your image here -->
+        <div>
+            <img src="asset/content/latency_compare.jpg" alt="latency comparison with SOTA methods"
+                 class="inserted-image">
 
-    <section class="description">
+        </div>
+
+        <div class="description-content">
+          <h2>Several core design details for Efficiency</h2>
+          <p>
+              &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;  <strong style="font-size: 18px;">Deep Compression Autoencoder: </strong>
+              We introduce a new Autoencoder (AE) that aggressively increases the scaling factor to 32.
+              Compared with AE-F8, our AE-F32 outputs 16x fewer latent tokens, which is crucial for efficient training
+              and generating ultra-high-resolution images, such as 4K resolution.<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp; <strong style="font-size: 18px;">Efficient Linear DiT: </strong>
+              We introduce a new linear DiT to replace vanilla quadratic attention modules, reducing the computational complexity from O(N<span style="font-size: 0.8em;"><sup>2</sup></span>) to O(N)
+              At the same time, we propose Mix-FFN, which integrates 3x3 depth-wise convolution into MLP to aggregate the local information of tokens.
+              We argue that linear attention can achieve results comparable to vanilla attention with proper design
+              and is more efficient for high-resolution image generation (e.g., accelerating by 1.7x at 4K).
+              Additionally, the indirect benefit of Mix-FFN is that we do not need position encoding (NoPE).
+              For the first time, we removed the positional embedding in DiT and find no quality loss.<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp; <strong style="font-size: 18px;">Decoder-only Small LLM as Text Encoder: </strong>
+              We use the latest Large Language Model (LLM), Gemma, as the text encoder to enhance understanding and reasoning in user prompts.
+              While text-to-image models have improved, most still rely on CLIP or T5 for text encoding, which often lack strong comprehension and instruction-following skills.
+              Decoder-only LLMs like Gemma offer superior text understanding and instruction-following abilities.
+              In this work, we tackle training instability when adopting an LLM as a text encoder and
+              design complex human instructions (CHI) to leverage Gemma’s in-context learning and reasoning, improving image-text alignment.<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp; <strong style="font-size: 18px;">Efficient Training and Inference Strategy: </strong>
+              We propose automatic labeling and training strategies to improve text-image consistency.
+              For each image, multiple VLMs generate re-captions, leveraging their complementary strengths to enhance caption diversity.
+              Additionally, we introduce a CLIPScore-based training strategy, dynamically selecting high-CLIPScore captions based on probability,
+              improving training convergence and text-image alignment. We also propose a <strong style="font-size: 1.05em;">Flow-DPM-Solver</strong>,
+              reducing inference sampling steps from 28-50 to 14-20 compared to the Flow-Euler-Solver, while achieving better results.</div>
+          <p>
+
+        <div>
+            <img src="asset/content/incremental.jpg" alt="details of difference parts for efficiency improvement" class="inserted-image">
+        </div>
+
         <div class="description-content">
           <h2>Our Mission</h2>
           <p>Our mission is to develop AI technologies that can solve real-world problems and improve people's lives...</p>
@@ -387,20 +450,23 @@
                 Your browser does not support the video tag.
             </video>
         </div>
+        <!-- End Video Section -->
 
-    <!--BibTex citation -->
-    <section class="citation" id="BibTeX">
-        <div class="citation-content">
-            <h2 class="title">BibTeX</h2>
-            <pre><code>@misc{xie2024sana,
-    title={Sana: Efficient High-Resolution Image Synthesis with Linear Diffusion Transformer},
-    author={Enze Xie and Junsong Chen and Junyu Chen and Han Cai and Yujun Lin and Zhekai Zhang and Muyang Li and Ligeng Zhu and Yao Lu and Song Han},
-    year={2024},
-    eprint={0000.0000},
-    archivePrefix={arXiv},
-    primaryClass={cs.CV}
-}</code></pre>
-        </div>
+        <!--BibTex citation -->
+        <section class="citation" id="BibTeX">
+            <div class="citation-content">
+                <h2 class="title">BibTeX</h2>
+                <pre><code>@misc{xie2024sana,
+        title={Sana: Efficient High-Resolution Image Synthesis with Linear Diffusion Transformer},
+        author={Enze Xie and Junsong Chen and Junyu Chen and Han Cai and Yujun Lin and Zhekai Zhang and Muyang Li and Ligeng Zhu and Yao Lu and Song Han},
+        year={2024},
+        eprint={0000.0000},
+        archivePrefix={arXiv},
+        primaryClass={cs.CV}
+    }</code></pre>
+            </div>
+        </section>
+
     </section>
     <!--End BibTex citation -->
 
@@ -436,7 +502,6 @@
         img.addEventListener('click', () => openModal(img));
       });
     </script>
-
 
 </body>
 </html>

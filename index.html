@@ -30,13 +30,13 @@
             margin: 0.2em 0;
         }
         .hero h2 {
-            font-size: 3em;
+            font-size: 2.8em;
             margin: 0.2em 0;
             font-weight: normal;
             line-height: 1.4; /* Adjust this value to make the spacing larger */
         }
         .hero p {
-            font-size: 1.5em;
+            font-size: 1.4em;
             margin-bottom: 1em;
         }
         .button {
@@ -220,11 +220,11 @@
         .inserted-image {
             max-width: 80%;  /* Set the maximum width for the image */
             height: auto;    /* Ensure the height adjusts automatically to maintain aspect ratio */
-            margin: 20px 0;  /* Add space above and below the image */
+            margin: 30px;  /* Add space above and below the image */
+            margin-top: 10px;
             display: block;  /* Make sure the image is treated as a block-level element */
             margin-left: auto; /* Center the image horizontally */
             margin-right: auto;
-            margin-top: -10px;
             border-radius: 10px;
             box-shadow: 2px 2px 12px 4px #00000012;
         }
@@ -459,11 +459,11 @@
     <section class="description">
         <div class="description-content">
           <h2>About Sana</h2>
-          <p>We introduce Sana, a text-to-image framework that can efficiently generate images up to 4096 x 4096 resolution.
+          <p>We introduce Sana, a text-to-image framework that can efficiently generate images up to 4096 × 4096 resolution.
                     Sana can synthesize high-resolution, high-quality images with strong text-image alignment at a remarkably fast speed,
                     deployable on laptop GPU. Core designs include:
                     <strong style="font-size: 18px;">Deep compression autoencoder: </strong> un-like traditional AEs, which compress images only 8x,
-                        we trained an AE that can compress images 32x, effectively reducing the number of latent tokens.
+                        we trained an AE that can compress images 32×, effectively reducing the number of latent tokens.
                     <strong style="font-size: 18px;">Linear DiT: </strong> we replace all vanilla attention in DiT with linear attention, which is more efficient at high resolutions without sacrificing quality.
                     <strong style="font-size: 18px;">Decoder-only text encoder: </strong> we replaced T5 with modern decoder-only small LLM as the text encoder and designed
                         complex human instruction with in-context learning to enhance the image-text alignment.
@@ -471,8 +471,8 @@
                         with efficient caption labeling and selection to accelerate convergence.<br>
                     As a result, Sana-0.6B is very competitive with modern giant diffusion model (e.g. Flux-12B),
                     being 20 times smaller and 100+ times faster in measured throughput.
-                    Moreover, Sana-0.6B can be deployed on a 16GB laptop GPU, taking less than 1 second to generate a 1024 x 1024 resolution image.
-                    Sana enables content creation at low cost. Code and model will be publicly released.</p>
+                    Moreover, Sana-0.6B can be deployed on a 16GB laptop GPU, taking less than 1 second to generate a 1024 × 1024 resolution image.
+                    Sana enables content creation at low cost.</p>
         </div>
 
         <!-- Insert your image here -->
@@ -487,12 +487,12 @@
           <p>
               &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;  <strong style="font-size: 18px;">Deep Compression Autoencoder: </strong>
               We introduce a new Autoencoder (AE) that aggressively increases the scaling factor to 32.
-              Compared with AE-F8, our AE-F32 outputs 16x fewer latent tokens, which is crucial for efficient training
+              Compared with AE-F8, our AE-F32 outputs 16× fewer latent tokens, which is crucial for efficient training
               and generating ultra-high-resolution images, such as 4K resolution.<br>
               &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp; <strong style="font-size: 18px;">Efficient Linear DiT: </strong>
               We introduce a new linear DiT, replacing vanilla quadratic attention and reducing complexity from O(N<span style="font-size: 0.8em;"><sup>2</sup></span>) to O(N)
-              Mix-FFN, with 3x3 depth-wise convolution in MLP, enhances the local information of tokens.
-              Linear attention achieves comparable results to vanilla, improving 4K generation by 1.7x in latency.
+              Mix-FFN, with 3×3 depth-wise convolution in MLP, enhances the local information of tokens.
+              Linear attention achieves comparable results to vanilla, improving 4K generation by 1.7× in latency.
               Mix-FFN also removes the need for positional encoding (NoPE) without quality loss, marking the first DiT without positional embedding.<br>
               &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp; <strong style="font-size: 18px;">Decoder-only Small LLM as Text Encoder: </strong>
               We use Gemma, a decoder-only LLM, as the text encoder to enhance understanding and reasoning in prompts.
@@ -506,16 +506,22 @@
           <p>
 
         <div>
-            <img src="asset/content/incremental.jpg" alt="details of difference parts for efficiency improvement" class="inserted-image">
+            <img src="asset/content/model-incremental.jpg" alt="pipeline for Sana" class="inserted-image">
         </div>
 
         <div class="description-content">
-          <h2>Our Mission</h2>
-            <p>Our mission is to develop <strong>efficient, lightweight, and accelerated</strong> AI technologies that address practical challenges and deliver fast, open-source solutions...</p>
+          <h2>Performance</h2>
+            <p>We compare Sana with the most advanced text-to-image diffusion models in Table 7. For 512 × 512 resolution,
+                Sana-0.6 demonstrates a throughput that is 5× faster than PixArt-Σ, which has a similar model size,
+                and significantly outperforms it in FID, Clip Score, GenEval, and DPG-Bench. For 1024 × 1024 resolution,
+                Sana is considerably stronger than most models with <3B parameters and excels in inference latency.
+                Our models achieve competitive performance even when compared to the most advanced large model FLUX-dev.
+                For instance, while the accuracy on DPG-Bench is equivalent and slightly lower on GenEval,
+                Sana-0.6B’s throughput is 39× faster, and Sana-1.6B is 23× faster.</p>
         </div>
 
         <div>
-            <img src="asset/content/model.jpg" alt="pipeline for Sana" class="inserted-image">
+            <img src="asset/content/performance.jpg" alt="Sana performance" class="inserted-image">
         </div>
 
         <div class="description-content">
@@ -540,12 +546,12 @@
             <div class="citation-content">
                 <h2 class="title">BibTeX</h2>
                 <pre><code>@misc{xie2024sana,
-        title={Sana: Efficient High-Resolution Image Synthesis with Linear Diffusion Transformer},
-        author={Enze Xie and Junsong Chen and Junyu Chen and Han Cai and Yujun Lin and Zhekai Zhang and Muyang Li and Ligeng Zhu and Yao Lu and Song Han},
-        year={2024},
-        eprint={0000.0000},
-        archivePrefix={arXiv},
-        primaryClass={cs.CV}
+      title={Sana: Efficient High-Resolution Image Synthesis with Linear Diffusion Transformer},
+      author={Enze Xie and Junsong Chen and Junyu Chen and Han Cai and Yujun Lin and Zhekai Zhang and Muyang Li and Ligeng Zhu and Yao Lu and Song Han},
+      year={2024},
+      eprint={0000.0000},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
     }</code></pre>
             </div>
         </section>

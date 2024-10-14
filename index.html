@@ -176,6 +176,7 @@
         .citation {
             /*background-color: #333; !* Solid background color that spans the entire width *!*/
             font-family: Arial, sans-serif;
+            background-color: #fff; /* Solid background color that spans the entire width */
             color: black;
             padding: 10px;
             text-align: center;
@@ -185,13 +186,17 @@
             border-top-right-radius: 20px;
         }
         .citation-content {
-            /*background-color: rgba(255, 255, 255, 0.1); !* Semi-transparent background inside the section *!*/
-            /*border: 2px solid #444; !* Adding a lighter border *!*/
+            text-align: left;
             border-radius: 15px; /* Rounded corners */
             font-size: 0.8em;
-            max-width: 65%; /* Limit the width to 80% of the screen */
+            max-width: 80%; /* Limit the width to 80% of the screen */
             margin: 0 auto; /* Center the content horizontally */
-            padding: 0px; /* Padding inside the border */
+            margin-top: 20px;
+            padding: 0; /* Padding inside the border */
+            background-color: #f5f5f5; /* Semi-transparent background inside the section */
+            overflow-x: auto; /* Horizontal scrolling */
+            overflow-y: hidden; /* Prevent vertical scrolling */
+            white-space: nowrap; /* Prevent line breaks */
         }
         .citation-content h2 {
             font-size: 2em;
@@ -199,8 +204,8 @@
             font-weight: normal;
         }
         .citation pre {
+            max-width: 90%; /* Limit the width to 80% of the screen */
             text-align: left;
-            white-space: pre-wrap; /* Allows text to wrap */
         }
         .footer {
             background-color: #222;
@@ -221,7 +226,7 @@
             margin-right: auto;
             margin-top: -10px;
             border-radius: 10px;
-            box-shadow: 2px 4px 12px #00000024;
+            box-shadow: 2px 2px 12px 4px #00000012;
         }
         .video-container {
             text-align: center;  /* Center the video horizontally */
@@ -341,7 +346,7 @@
                 max-width: 92%;  /* The video will scale to fit the container */
             }
             .logo {
-                gap: 20px;
+                gap: 10px;
             }
         }
         /* Dark mode */
@@ -362,12 +367,12 @@
     </style>
 </head>
 <body>
-    <div style="overflow: hidden; background-color: #6699cc;">
-      <div class="container">
-        <a href="https://www.nvidia.com/" style="float: left; color: black; text-align: center; padding: 12px 16px; text-decoration: none; font-size: 16px;"><img width="100%" src="https://nv-tlabs.github.io/3DStyleNet/assets/nvidia.svg"></a>
-        <a href="https://github.com/Efficient-Large-Model/" style="float: left; color: black; text-align: center; padding: 14px 16px; text-decoration: none; font-size: 16px;"><strong>Efficient AI Group</strong></a>
-      </div>
-    </div>
+<!--    <div style="overflow: hidden; background-color: #6699cc;">-->
+<!--      <div class="container">-->
+<!--        <a href="https://www.nvidia.com/" style="float: left; color: black; text-align: center; padding: 12px 16px; text-decoration: none; font-size: 16px;"><img width="100%" src="https://nv-tlabs.github.io/3DStyleNet/assets/nvidia.svg"></a>-->
+<!--        <a href="https://github.com/Efficient-Large-Model/" style="float: left; color: black; text-align: center; padding: 14px 16px; text-decoration: none; font-size: 16px;"><strong>Efficient AI Group</strong></a>-->
+<!--      </div>-->
+<!--    </div>-->
     <div class="hero">
         <div style="display: flex; justify-content: center; align-items: center; margin-left: -40px;">
             <img src="asset/logo.jpg" alt="Logo" style="width: 50px; height: auto; margin-right: 5px;">
@@ -485,24 +490,19 @@
               Compared with AE-F8, our AE-F32 outputs 16x fewer latent tokens, which is crucial for efficient training
               and generating ultra-high-resolution images, such as 4K resolution.<br>
               &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp; <strong style="font-size: 18px;">Efficient Linear DiT: </strong>
-              We introduce a new linear DiT to replace vanilla quadratic attention modules, reducing the computational complexity from O(N<span style="font-size: 0.8em;"><sup>2</sup></span>) to O(N)
-              At the same time, we propose Mix-FFN, which integrates 3x3 depth-wise convolution into MLP to aggregate the local information of tokens.
-              We argue that linear attention can achieve results comparable to vanilla attention with proper design
-              and is more efficient for high-resolution image generation (e.g., accelerating by 1.7x at 4K).
-              Additionally, the indirect benefit of Mix-FFN is that we do not need position encoding (NoPE).
-              For the first time, we removed the positional embedding in DiT and find no quality loss.<br>
+              We introduce a new linear DiT, replacing vanilla quadratic attention and reducing complexity from O(N<span style="font-size: 0.8em;"><sup>2</sup></span>) to O(N)
+              Mix-FFN, with 3x3 depth-wise convolution in MLP, enhances the local information of tokens.
+              Linear attention achieves comparable results to vanilla, improving 4K generation by 1.7x in latency.
+              Mix-FFN also removes the need for positional encoding (NoPE) without quality loss, marking the first DiT without positional embedding.<br>
               &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp; <strong style="font-size: 18px;">Decoder-only Small LLM as Text Encoder: </strong>
-              We use the latest Large Language Model (LLM), Gemma, as the text encoder to enhance understanding and reasoning in user prompts.
-              While text-to-image models have improved, most still rely on CLIP or T5 for text encoding, which often lack strong comprehension and instruction-following skills.
-              Decoder-only LLMs like Gemma offer superior text understanding and instruction-following abilities.
-              In this work, we tackle training instability when adopting an LLM as a text encoder and
-              design complex human instructions (CHI) to leverage Gemma’s in-context learning and reasoning, improving image-text alignment.<br>
+              We use Gemma, a decoder-only LLM, as the text encoder to enhance understanding and reasoning in prompts.
+              Unlike CLIP or T5, Gemma offers superior text comprehension and instruction-following.
+              We address training instability and design complex human instructions (CHI) to leverage Gemma’s in-context learning,
+              improving image-text alignment.<br>
               &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp; <strong style="font-size: 18px;">Efficient Training and Inference Strategy: </strong>
               We propose automatic labeling and training strategies to improve text-image consistency.
-              For each image, multiple VLMs generate re-captions, leveraging their complementary strengths to enhance caption diversity.
-              Additionally, we introduce a CLIPScore-based training strategy, dynamically selecting high-CLIPScore captions based on probability,
-              improving training convergence and text-image alignment. We also propose a <strong style="font-size: 1.05em;">Flow-DPM-Solver</strong>,
-              reducing inference sampling steps from 28-50 to 14-20 compared to the Flow-Euler-Solver, while achieving better results.</div>
+              Multiple VLMs generate diverse re-captions, and a CLIPScore-based strategy selects high-CLIPScore captions to enhance convergence and alignment.
+              Additionally, our <strong style="font-size: 1.05em;">Flow-DPM-Solver</strong> reduces inference steps from 28-50 to 14-20 compared to the Flow-Euler-Solver, with better performance.</div>
           <p>
 
         <div>
@@ -511,7 +511,16 @@
 
         <div class="description-content">
           <h2>Our Mission</h2>
-          <p>Our mission is to develop AI technologies that can solve real-world problems and improve people's lives...</p>
+            <p>Our mission is to develop <strong>efficient, lightweight, and accelerated</strong> AI technologies that address practical challenges and deliver fast, open-source solutions...</p>
+        </div>
+
+        <div>
+            <img src="asset/content/model.jpg" alt="pipeline for Sana" class="inserted-image">
+        </div>
+
+        <div class="description-content">
+          <h2>Our Mission</h2>
+            <p>Our mission is to develop <strong>efficient, lightweight, and accelerated</strong> AI technologies that address practical challenges and deliver fast, open-source solutions...</p>
         </div>
 
         <!-- Video Section -->

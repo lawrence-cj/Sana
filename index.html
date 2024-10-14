@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sana</title>
@@ -181,9 +182,6 @@
             padding: 10px;
             text-align: center;
             margin-top: 10px;
-            box-shadow: 2px 4px 12px #00000054;
-            border-top-left-radius: 20px;
-            border-top-right-radius: 20px;
         }
         .citation-content {
             text-align: left;
@@ -204,17 +202,22 @@
             font-weight: normal;
         }
         .citation pre {
+            border-radius: 15px; /* Rounded corners */
             max-width: 90%; /* Limit the width to 80% of the screen */
             text-align: left;
         }
         .footer {
-            background-color: #222;
-            color: #fff;
+            background-color: #f5f5f5;
+            box-shadow: 2px 4px 12px #00000054;
+            color: #333;
             padding: 20px;
             text-align: center;
+            margin-top: -20px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
         }
         .footer a {
-            color: #00d1b2;
+            color: dodgerblue;
             text-decoration: none;
         }
         .inserted-image {
@@ -226,7 +229,7 @@
             margin-left: auto; /* Center the image horizontally */
             margin-right: auto;
             border-radius: 10px;
-            box-shadow: 2px 2px 12px 4px #00000012;
+            box-shadow: 2px 2px 10px 3px #00000030;
         }
         .video-container {
             text-align: center;  /* Center the video horizontally */
@@ -236,7 +239,7 @@
             max-width: 80%;  /* The video will scale to fit the container */
             height: auto;  /* Maintain the video's aspect ratio */
             border-radius: 10px;  /* Rounded corners for the video */
-            box-shadow: 2px 4px 12px #00000054;
+            box-shadow: 2px 2px 10px 3px #00000054;
         }
         .logo {
             color: black;
@@ -499,18 +502,28 @@
               Unlike CLIP or T5, Gemma offers superior text comprehension and instruction-following.
               We address training instability and design complex human instructions (CHI) to leverage Gemma’s in-context learning,
               improving image-text alignment.<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp; <strong style="font-size: 18px;">Efficient Training and Inference Strategy: </strong>
-              We propose automatic labeling and training strategies to improve text-image consistency.
-              Multiple VLMs generate diverse re-captions, and a CLIPScore-based strategy selects high-CLIPScore captions to enhance convergence and alignment.
-              Additionally, our <strong style="font-size: 1.05em;">Flow-DPM-Solver</strong> reduces inference steps from 28-50 to 14-20 compared to the Flow-Euler-Solver, with better performance.</div>
-          <p>
+          </p>
+        </div>
 
         <div>
             <img src="asset/content/model-incremental.jpg" alt="pipeline for Sana" class="inserted-image">
         </div>
 
         <div class="description-content">
-          <h2>Performance</h2>
+            <p>
+              &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp; <strong style="font-size: 18px;">Efficient Training and Inference Strategy: </strong>
+              We propose automatic labeling and training strategies to improve text-image consistency.
+              Multiple VLMs generate diverse re-captions, and a CLIPScore-based strategy selects high-CLIPScore captions to enhance convergence and alignment.
+              Additionally, our <strong style="font-size: 1.05em;">Flow-DPM-Solver</strong> reduces inference steps from 28-50 to 14-20 compared to the Flow-Euler-Solver, with better performance.
+            </p>
+        </div>
+
+        <div>
+            <img src="asset/content/sampler.jpg" alt="flow-dpms vs flow-euler" class="inserted-image">
+        </div>
+
+        <div class="description-content">
+          <h2>Overall Performance</h2>
             <p>We compare Sana with the most advanced text-to-image diffusion models in Table 7. For 512 × 512 resolution,
                 Sana-0.6 demonstrates a throughput that is 5× faster than PixArt-Σ, which has a similar model size,
                 and significantly outperforms it in FID, Clip Score, GenEval, and DPG-Bench. For 1024 × 1024 resolution,
@@ -524,11 +537,6 @@
             <img src="asset/content/performance.jpg" alt="Sana performance" class="inserted-image">
         </div>
 
-        <div class="description-content">
-          <h2>Our Mission</h2>
-            <p>Our mission is to develop <strong>efficient, lightweight, and accelerated</strong> AI technologies that address practical challenges and deliver fast, open-source solutions...</p>
-        </div>
-
         <!-- Video Section -->
         <div class="description-content">
             <h2>Sana-0.6B is deployable on a customer-grade 4090 GPU</h2>
@@ -540,6 +548,11 @@
             </video>
         </div>
         <!-- End Video Section -->
+
+        <div class="description-content">
+            <h2>Our Mission</h2>
+            <p>Our mission is to develop <strong>efficient, lightweight, and accelerated</strong> AI technologies that address practical challenges and deliver fast, open-source solutions...</p>
+        </div>
 
         <!--BibTex citation -->
         <section class="citation" id="BibTeX">
@@ -565,7 +578,12 @@
             <div class="columns is-centered">
                 <div class="column is-8">
                     <div class="content">
-                        <p class="has-text-centered">Total clicks: <span id="busuanzi_value_site_pv"></span></p>
+                        <p>
+                            This website is licensed under a <a
+                                rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+                                Commons Attribution-ShareAlike 4.0 International License</a>.
+                        </p>
+                        <span id="busuanzi_container_site_pv">Total clicks: <span id="busuanzi_value_site_pv"></span></span></p>
                     </div>
                 </div>
             </div>

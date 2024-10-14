@@ -306,7 +306,7 @@
                 padding: 10px; /* Padding inside the border */
             }
             .inserted-image {
-                max-width: 960px; /* Limit the width to 80% of the screen */
+                max-width: 826px; /* Limit the width to 80% of the screen */
                 padding: 5px; /* Padding inside the border */
             }
             video {
@@ -475,7 +475,7 @@
           <p>We introduce Sana, a text-to-image framework that can efficiently generate images up to 4096 × 4096 resolution.
                     Sana can synthesize high-resolution, high-quality images with strong text-image alignment at a remarkably fast speed,
                     deployable on laptop GPU. Core designs include:
-                    <strong style="font-size: 18px;">Deep compression autoencoder: </strong> un-like traditional AEs, which compress images only 8×,
+                    <strong style="font-size: 18px;">Deep compression autoencoder: </strong> unlike traditional AEs, which compress images only 8×,
                         we trained an AE that can compress images 32×, effectively reducing the number of latent tokens.
                     <strong style="font-size: 18px;">Linear DiT: </strong> we replace all vanilla attention in DiT with linear attention, which is more efficient at high resolutions without sacrificing quality.
                     <strong style="font-size: 18px;">Decoder-only text encoder: </strong> we replaced T5 with modern decoder-only small LLM as the text encoder and designed

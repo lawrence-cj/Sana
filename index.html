@@ -33,6 +33,7 @@
             font-size: 3em;
             margin: 0.2em 0;
             font-weight: normal;
+            line-height: 1.4; /* Adjust this value to make the spacing larger */
         }
         .hero p {
             font-size: 1.5em;
@@ -232,6 +233,22 @@
             border-radius: 10px;  /* Rounded corners for the video */
             box-shadow: 2px 4px 12px #00000054;
         }
+        .logo {
+            color: black;
+            display: flex;
+            justify-content: center;
+            /*justify-content: left;*/
+            align-items: center;
+            text-align: center;
+            gap: 60px;
+        }
+        .logo-sup {
+            position: absolute;
+            top: -5px; /* Adjust this value to position it closer to the top */
+            right: -10px; /* Adjust this value to move it horizontally */
+            font-size: 14px; /* Increase the size of the superscript */
+            color: black; /* Change the color if needed */
+          }
 
         @media (max-width: 4096px) {
             .gallery {
@@ -323,6 +340,9 @@
             video {
                 max-width: 92%;  /* The video will scale to fit the container */
             }
+            .logo {
+                gap: 20px;
+            }
         }
         /* Dark mode */
         @media (prefers-color-scheme: dark) {
@@ -350,6 +370,43 @@
         <h2>Efficient High-Resolution Image Synthesis <br>
             with Linear Diffusion Transformer</h2>
         <p>Exploring the Frontiers of Efficient Generative Foundation Models</p>
+
+        <!-- Add author and institution information -->
+        <div style="margin-top: 20px; text-align: center;">
+            <p style="font-size: 1.3em; margin-bottom: 5px;">
+                <a href="https://xieenze.github.io/" target="_blank" style="color: #76b900;">Enze Xie</a><sup>1*</sup>,
+                <a href="https://lawrence-cj.github.io/" target="_blank" style="color: #76b900;">Junsong Chen</a><sup>1*</sup>,
+                <a href="https://scholar.google.com.hk/citations?hl=zh-CN&user=mWdYMZ8AAAAJ" target="_blank" style="color: #76b900;">Junyu Chen</a><sup>2,3</sup>,
+                <a href="https://han-cai.github.io//" target="_blank" style="color: #76b900;">Han Cai</a><sup>1</sup>,
+                <a href="http://kentang.net/" target="_blank" style="color: #76b900;">Haotian Tang</a><sup>2</sup>,<br>
+                <a href="https://yujunlin.com//" target="_blank" style="color: #76b900;">Yujun Lin</a><sup>2</sup>,
+                <a href="https://hanlab.mit.edu/team/zhekai-zhang/" target="_blank" style="color: #76b900;">Zhekai Zhang</a><sup>2</sup>,
+                <a href="https://lmxyy.me//" target="_blank" style="color: #76b900;">Muyang Li</a><sup>2</sup>,
+                <a href="https://lzhu.me//" target="_blank" style="color: #76b900;">Ligeng Zhu</a><sup>1</sup>,
+                <a href="https://scholar.google.com/citations?user=OI7zFmwAAAAJ&hl=en/" target="_blank" style="color: #76b900;">Yao Lu</a><sup>1</sup>,
+                <a href="https://hanlab.mit.edu/songhan/" target="_blank" style="color: #76b900;">Song Han</a><sup>1,2</sup>
+            </p>
+            <p style="font-size: 1.2em; color: #888;">
+                <sup>1</sup>NVIDIA, <sup>2</sup>MIT, <sup>3</sup>Tsinghua University
+                <br>
+                *Project co-lead
+            </p>
+        </div>
+<!--        <div style="overflow: hidden; background-color: #6699cc;">-->
+        <div style="overflow: hidden; background-color: #fff;">
+          <div class="logo" style="padding: 12px;">
+            <a href="https://www.nvidia.com/" style="text-decoration: none; font-size: 16px;">
+              <img src="https://nv-tlabs.github.io/3DStyleNet/assets/nvidia.svg" alt="NVIDIA Logo" style="width: auto; height: 30px;">
+            </a>
+            <a href="https://hanlab.mit.edu/" style="text-decoration: none; font-size: 16px;">
+              <img src="asset/mit_han.png" alt="MIT Logo" style="width: auto; height: 30px;">
+            </a>
+            <a href="" style="text-decoration: none; font-size: 16px;">
+              <img src="asset/thu.jpg" alt="THU Logo" style="width: auto; height: 40px;">
+            </a>
+          </div>
+        </div>
+
         <a href="#" class="button">Paper</a>
         <a href="#" class="button">Get Sana</a>
     </div>
